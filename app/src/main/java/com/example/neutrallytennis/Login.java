@@ -14,8 +14,8 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 
 public class Login extends AppCompatActivity {
-    private EditText usern;
-    private EditText userp;
+    private EditText high;
+    private EditText low;
     private Button logB;
 
     @Override
@@ -24,16 +24,26 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
 
-        usern = (EditText) findViewById(R.id.high_utr);
+        high = (EditText) findViewById(R.id.high_utr);
 
-        userp = (EditText) findViewById(R.id.low_utr);
+        low = (EditText) findViewById(R.id.low_utr);
 
         logB = (Button) findViewById(R.id.logB);
 
         logB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                float high_utr = Float.parseFloat(high.getText().toString());
+                float low_utr = Float.parseFloat(low.getText().toString());
+
+                float cof = (float)0.14822229;
+                float inter = (float)0.51602479;
+
+                float ratio = cof*(high_utr - low_utr) + inter;
+
+                String ratio1 = String.valueOf(ratio);
                 Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                intent.putExtra("Ratio",ratio1);
                 startActivity(intent);
             }
         });

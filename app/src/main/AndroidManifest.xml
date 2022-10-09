@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NeutrallyTennis">
         <activity
+            android:name=".CheckResult"
+            android:exported="false" />
+        <activity
             android:name=".Check"
             android:exported="false" />
         <activity
