@@ -1,4 +1,4 @@
-package com.example.neutrallytennis;
+package com.tennis.neutrallytennis;
 
 import android.content.Context;
 
